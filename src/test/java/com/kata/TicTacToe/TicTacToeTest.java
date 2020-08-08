@@ -7,13 +7,14 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 
 public class TicTacToeTest
 {
 
     public static final String PLAYER_ONE_NAME = "X";
+    private static final String PLAYER_TWO_NAME = "O";
     TicTacToe ticTacToe;
 
     @Rule
@@ -29,7 +30,7 @@ public class TicTacToeTest
     @Test
     public void createNewTicTacToeBoard()
     {
-        assertNotNull(ticTacToe.getBoard());
+        assertNull(ticTacToe.getBoard());
     }
 
     @Test
@@ -51,5 +52,13 @@ public class TicTacToeTest
         ticTacToe.makeaMove(PLAYER_ONE_NAME, 0,0);
     }
 
+    @Test
+    public void playerXMustMakeFirstMove()
+    {
+        exceptionRule.expect(TicTacToeException.class);
+        exceptionRule.expectMessage(PLAYER_TWO_NAME+" cannot make first move.");
+
+        ticTacToe.makeaMove(PLAYER_TWO_NAME,0,0);
+    }
 
 }
