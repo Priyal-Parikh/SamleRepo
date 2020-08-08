@@ -70,4 +70,13 @@ public class TicTacToeTest
         ticTacToe.makeaMove("A",0,0);
     }
 
+    @Test
+    public void playerMovesToIncorrectPosition()
+    {
+        exceptionRule.expect(TicTacToeException.class);
+        exceptionRule.expectMessage("Player Cannot Move to Incorrect Position.");
+
+        ticTacToe.makeaMove(PLAYER_ONE_NAME,4,0);
+    }
+
 }

@@ -11,6 +11,10 @@ public class TicTacToe {
 
     public void makeaMove(String playerName, int row, int column) {
 
+        if(row<0 || row>=3  || column<0 || column>=3)
+        {
+            throw new TicTacToeException("Player Cannot Move to Incorrect Position.");
+        }
         if(!"O".equalsIgnoreCase(playerName) && !"X".equalsIgnoreCase(playerName)) {
             throw new TicTacToeException("Only X or O players can make move.");
         }
