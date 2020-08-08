@@ -61,4 +61,13 @@ public class TicTacToeTest
         ticTacToe.makeaMove(PLAYER_TWO_NAME,0,0);
     }
 
+    @Test
+    public void onlyXOrOCanMakeMove()
+    {
+        exceptionRule.expect(TicTacToeException.class);
+        exceptionRule.expectMessage("Only X or O players can make move.");
+
+        ticTacToe.makeaMove("A",0,0);
+    }
+
 }

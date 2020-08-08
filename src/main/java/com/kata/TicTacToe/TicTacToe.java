@@ -11,6 +11,10 @@ public class TicTacToe {
 
     public void makeaMove(String playerName, int row, int column) {
 
+        if(!"O".equalsIgnoreCase(playerName) && !"X".equalsIgnoreCase(playerName)) {
+            throw new TicTacToeException("Only X or O players can make move.");
+        }
+
         if(this.board==null)
         {
             if("O".equalsIgnoreCase(playerName))
@@ -25,5 +29,6 @@ public class TicTacToe {
             throw new TicTacToeException(playerName+" cannot move to a played position.");
         }
         this.board[row][column]=playerName;
+
     }
 }
