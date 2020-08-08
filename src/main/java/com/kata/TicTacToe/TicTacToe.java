@@ -3,6 +3,8 @@ package com.kata.TicTacToe;
 import com.kata.TicTacToe.exception.TicTacToeException;
 
 public class TicTacToe {
+    public static final int MINIMUM_BOARD_DIMESION = 0;
+    public static final int MAXIMUM_BOARD_DIMENSION = 3;
     private String[][] board;
 
     public String[][] getBoard() {
@@ -11,7 +13,8 @@ public class TicTacToe {
 
     public void makeaMove(String playerName, int row, int column) {
 
-        if(row<0 || row>=3  || column<0 || column>=3)
+        if(row< MINIMUM_BOARD_DIMESION || row>= MAXIMUM_BOARD_DIMENSION
+                || column<MINIMUM_BOARD_DIMESION || column>=MAXIMUM_BOARD_DIMENSION)
         {
             throw new TicTacToeException("Player Cannot Move to Incorrect Position.");
         }
