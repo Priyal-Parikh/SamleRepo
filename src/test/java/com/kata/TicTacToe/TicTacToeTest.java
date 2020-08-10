@@ -12,14 +12,12 @@ import static org.junit.Assert.assertNull;
 
 public class TicTacToeTest
 {
-
     public static final String PLAYER_ONE_NAME = "X";
     private static final String PLAYER_TWO_NAME = "O";
     TicTacToe ticTacToe;
 
     @Rule
     public ExpectedException exceptionRule = ExpectedException.none();
-
 
     @Before
     public void setUp()
